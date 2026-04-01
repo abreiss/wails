@@ -1,5 +1,0 @@
-b1df3c097fb33b60026745f9b846954744a35527d8fb710988367de30c0b31de  wails_0.0.0-SNAPSHOT-ebe9d32e_darwin_amd64.tar.gz
-8dcb39d6361e66d6df0838aeb911b977b9940492754b8d1b0b83704ecb1ce216  wails_0.0.0-SNAPSHOT-ebe9d32e_darwin_arm64.tar.gz
-0fda0884319ea19d31ab8d4e2a19ac09780a6ee356593f9eeb11cc8e939a6b02  wails_0.0.0-SNAPSHOT-ebe9d32e_linux_amd64.tar.gz
-c5b67f9e9c260aa7979f667e3734b172ea7ae7ea212566305158019bb3be1490  wails_0.0.0-SNAPSHOT-ebe9d32e_linux_arm64.tar.gz
-370611dbabefc4d6f59d290ba6eaeb4fdf0bc2d78b412bdb4b25fa5d057664f9  wails_0.0.0-SNAPSHOT-ebe9d32e_windows_amd64.zip
