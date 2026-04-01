@@ -1,0 +1,44 @@
+name: GoReleaser Release
+
+on:
+  push:
+    tags:
+      - 'v*' 
+      # in the push they use v2.2.2 or whatever so only count on v
+
+permissions:
+  contents: write
+  # needs write acess becaues it creates and upddates a github release
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          #fetch depth 0 tells pull all git history and all tags
+          #default only gets latest commit
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: v2/go.mod
+          cache-dependency-path: v2/go.sum
+          #go module lives inside v2 in this project
+
+      - name: Update version.txt
+        run: echo '${{ github.ref_name }}' > v2/cmd/wails/internal/version.txt
+        #  github.ref_name is the tag name that triggered the workflow — exactly what should go into version.txt.
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v6
+        with:
+          distribution: goreleaser
+          version: latest
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB_TOKEN is automatically provided by GitHub Actions and allows GoReleaser to create and update releases
