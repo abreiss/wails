@@ -29,10 +29,6 @@ jobs:
           cache-dependency-path: v2/go.sum
           #go module lives inside v2 in this project
 
-      - name: Update version.txt
-        run: echo '${{ github.ref_name }}' > v2/cmd/wails/internal/version.txt
-        #  github.ref_name is the tag name that triggered the workflow — exactly what should go into version.txt.
-
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:

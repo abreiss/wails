@@ -1,5 +1,9 @@
 version: 2
 
+before:
+  hooks:
+    - bash -c "printf '{{ .Tag }}' > v2/cmd/wails/internal/version.txt"
+
 builds:
   - id: wails
     dir: v2/cmd/wails
